@@ -1,0 +1,65 @@
+1.（初始化git用户名及邮箱）安装后使用命令行设置用户名及邮箱来证明谁进行操作的
+
+git config --global user.name "Your Name"
+git config --global user.email "Your Email"
+
+2.（初始化git版本库）设置好用户名及邮箱后使用命令行设置git版本库
+
+git init
+
+3.（往git版本库进行添加或修改文件）设置好版本库后使用命令行进行添加里面文件并提交，需要把数据文件先放入暂存区再提交才能到分支中
+
+git add index.html 
+
+git commit -m "add index.html"
+
+git add index.html style.css 
+
+git commit -m "add index.html style.css"
+
+4.（查看git版本库状态）提交后查看还有没有其他没有上传的文件可以使用命令行
+
+git status
+
+5.（对比git版本库文件）当你发现有未上传文件并需要看你改变的内容可以使用命令行
+
+git diff index.html
+
+6.（查看git版本库最近日志信息）先要执行命令行进行查询版本库最近三次日志信息,简化日志信息可以加上（ --pretty=oneline）
+
+git log
+//简化日志信息
+git log --pretty=oneline
+
+7.（回退git版本库文件）根据查询到的日志信息的commit id进行回退 HEAD^(上一个版本)HEAD^^(上上个版本)HEAD~100(上100个版本)
+//还原上个版本
+git reset --hard HEAD^
+//跟版本号也可以
+git reset --hard 361580
+
+8.(查看最近你每次git操作)记录你的每一次命令
+
+git reflog
+
+9.工作区，暂存区及分支
+
+工作区就是建立git版本库的地方
+
+暂存区就是隐藏文件夹.git的储存区
+
+分支就是git版本库
+
+10.(从git版本库回退修改)把文件从git版本库返回上次提交分支状态或上次缓存区状态
+
+git checkout -- index.html
+
+11.(从git版本库进行删除)把文件从git版本库进行删除，可以通过回退修改进行还原
+
+git rm index.html
+
+git commit -m "remove index.html"
+
+12.（SSHkey创建）如果用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件就不用执行
+
+ssh-keygen -t rsa -C "youremail@example.com"
+
